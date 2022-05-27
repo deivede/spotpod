@@ -19,9 +19,12 @@ const Artists = ({ navigation, route }) => {
   var elementArray = []
 
   elementArray = array.map(artist => (
+      <View style={styles.albumRow} key={artist.id}>
+          <Image style={styles.albumImage}
+                 source={{ uri: artist.albums[0].images}}
+          />
           <TouchableHighlight
-            key={artist.id}
-            style={styles.box}
+            style={styles.box2}
             underlayColor="#80dfff"
             onPress={() => {
             navigation.push('Albums', {paramA: array.indexOf(artist)})
@@ -30,6 +33,7 @@ const Artists = ({ navigation, route }) => {
               {artist.name}
             </Text>
           </TouchableHighlight>
+      </View>
           )
         )
 
@@ -71,20 +75,21 @@ const Albums = ({ navigation, route }) => {
     return el.type === "album"
   }).map(album => (
     <View style={styles.albumRow} key={album.id}>
-    <Image style={styles.albumImage}
-           source={{ uri: album.images}} />
-    <TouchableHighlight
-      style={styles.box2}
-      underlayColor="#80dfff"
-      onPress={() => {
-      navigation.push('Tracks', {paramA: selectedArtist,   paramA2: array.indexOf(album)})
-      }}>
-      <View style={styles.albumText}>
-      <Text style={styles.text}>
-        {album.name}
-      </Text>
-      </ View>
-    </TouchableHighlight >
+      <Image style={styles.albumImage}
+             source={{ uri: album.images}}
+      />
+      <TouchableHighlight
+        style={styles.box2}
+        underlayColor="#80dfff"
+        onPress={() => {
+        navigation.push('Tracks', {paramA: selectedArtist,   paramA2: array.indexOf(album)})
+        }}>
+        <View style={styles.albumText}>
+          <Text style={styles.text}>
+            {album.name}
+          </Text>
+        </ View>
+      </TouchableHighlight >
     </View>
   ))
 
