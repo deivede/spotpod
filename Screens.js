@@ -3,7 +3,6 @@ import { ScrollView, TouchableHighlight, Button, StyleSheet, Text, View, Linking
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, ResponseType, useAuthRequest, refreshAsync } from 'expo-auth-session';
 import { spotifyApi, auth, clientId } from './keys'
-import { SocialIcon } from 'react-native-elements';
 import "./spotpodlogo.png"
 import styles from './Styles.js'
 import * as FileSystem from 'expo-file-system';
@@ -15,23 +14,25 @@ WebBrowser.maybeCompleteAuthSession();
 const Artists = ({ navigation, route }) => {
 
   const { artists } = route.params
-  const array = artists
+  const artistsList = artists
   var elementArray = []
 
-  elementArray = array.map(artist => (
+  elementArray = artistsList.map(artist => (
       <View style={styles.albumRow} key={artist.id}>
-          <Image style={styles.albumImage}
-                 source={{ uri: artist.albums[0].images}}
+          <Image style={styles.artistImage}
+                 source={{ uri: artist.images[1].url}}
           />
           <TouchableHighlight
             style={styles.box2}
             underlayColor="#80dfff"
             onPress={() => {
-            navigation.push('Albums', {paramA: array.indexOf(artist)})
+            navigation.push('Albums', {paramA: artistsList.indexOf(artist)})
             }}>
-            <Text style={styles.text}>
-              {artist.name}
-            </Text>
+            <View style={styles.albumText}>
+              <Text style={styles.text}>
+                {artist.name}
+              </Text>
+            </View>
           </TouchableHighlight>
       </View>
           )
@@ -162,18 +163,14 @@ const SignIn = ({ navigation, route }) => {
     style={styles.logo}
     />
     </View>
-    <SocialIcon
+    <Button
       title={"Go to library"}
-      button
-      light
       onPress={() => {
          navigation.push('Artists')
         }}
     />
-    <SocialIcon
-      title="Configurations"
-      button
-      light
+    <Button
+      title={"Configurations"}
       onPress={() => {
          navigation.push('Configurations')
         }}
@@ -319,10 +316,8 @@ const Configurations = ({ navigation, route }) => {
 
   return (
     <View>
-    <SocialIcon
+    <Button
       title={loading}
-      button
-      light
       onPress={() => {
         promptAsync();
         }}

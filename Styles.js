@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
  albumRow: {
    flex: 1,
    flexDirection: "row"
+ },
+ artistImage: {
+   height: 64,
+   width: 64,
  }
 
 });
