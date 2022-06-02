@@ -2,12 +2,12 @@
   "expo": {
     "name": "spotpod",
     "slug": "spotpod",
-    "version": "1.1.1",
+    "version": "1.2.2",
     "scheme": "exp",
     "orientation": "portrait",
-    "icon": "./spotpodlogo.png",
+    "icon": "./assets/spotpodlogo.png",
     "splash": {
-      "image": "./splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,14 +24,14 @@
       "config": {
       },
       "adaptiveIcon": {
-        "foregroundImage": "./spotpodlogo.png",
+        "foregroundImage": "./assets/spotpodlogo.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.opensource.spotpod",
       "permissions": []
     },
     "web": {
-      "favicon": "./spotpodlogo.png"
+      "favicon": "./assets/spotpodlogo.png"
     }
   }
 }
