@@ -10,7 +10,27 @@ const Root = createStackNavigator()
 
 export default function App() {
 
-  const [lib, setLib] = useState({ artists: [{ name: "No Library. Go to Configurations or reopen app"}]})
+  const std = {
+      "artists": [
+        {
+          "name": "Add your library in config",
+          "images": [undefined,""],
+          "albums": [
+            {
+              "name": "Add your library in config",
+              "images": [undefined,""],
+              "tracks": [
+                {
+                  "name": "Add your library in config"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+  }
+
+  const [lib, setLib] = useState(std)
 
   useEffect(() => {
     FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'libra.json').then(library =>
@@ -18,13 +38,12 @@ export default function App() {
         const parsedLibrary = JSON.parse(library)
         setLib(parsedLibrary)
       })
-    }
-    ,[])
+    })
 
       return (
         <NavigationContainer>
           <Root.Navigator>
-            <Root.Screen name="SignIn" component={SignIn} />
+            <Root.Screen name="SignIn" initialParams={lib} component={SignIn} />
             <Root.Screen name="Configurations" component={Configurations} />
   <Root.Screen name="Artists" initialParams={lib}  component={Artists}  />
 <Root.Screen name="Albums" initialParams={lib} component={Albums} />

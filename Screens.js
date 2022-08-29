@@ -3,18 +3,18 @@ import { ScrollView, TouchableHighlight, Button, StyleSheet, Text, View, Linking
 import * as WebBrowser from 'expo-web-browser';
 import { makeRedirectUri, ResponseType, useAuthRequest, refreshAsync } from 'expo-auth-session';
 import { spotifyApi, auth, clientId } from './keys'
-import "./spotpodlogo.png"
+import "./assets/spotpodlogo.png"
 import styles from './Styles.js'
 import * as FileSystem from 'expo-file-system';
 
 
 WebBrowser.maybeCompleteAuthSession();
 
-
 const Artists = ({ navigation, route }) => {
 
-  const { artists } = route.params
-  const artistsList = artists
+    const { artists } = route.params
+    const artistsList = artists
+
   var elementArray = []
 
   elementArray = artistsList.map(artist => (
@@ -38,11 +38,12 @@ const Artists = ({ navigation, route }) => {
           )
         )
 
-  return (
-    <ScrollView style={styles.container}>
-    {elementArray}
-    </ScrollView>
-        )
+    return (
+      <ScrollView style={styles.container}>
+      {elementArray}
+      </ScrollView>
+     )
+
 }
 
 const Albums = ({ navigation, route }) => {
@@ -155,11 +156,12 @@ const Tracks = ({ navigation, route }) => {
 }
 
 const SignIn = ({ navigation, route }) => {
+
   return (
     <>
     <View style={styles.image}>
     <Image
-    source={ require('./spotpodlogo.png')}
+    source={ require('./assets/spotpodlogo.png')}
     style={styles.logo}
     />
     </View>
@@ -168,12 +170,14 @@ const SignIn = ({ navigation, route }) => {
       onPress={() => {
          navigation.push('Artists')
         }}
+      color="#80dfff"
     />
     <Button
       title={"Configurations"}
       onPress={() => {
          navigation.push('Configurations')
         }}
+        color="#80dfff"
     />
     </>
   )
@@ -307,7 +311,7 @@ const Configurations = ({ navigation, route }) => {
 
             const aa = JSON.stringify(artists)
            FileSystem.writeAsStringAsync(FileSystem.documentDirectory + 'libra.json', aa)
-           setLoading("Library added");
+           setLoading("Library added. Reload App");
         }
 
        login();
@@ -321,6 +325,7 @@ const Configurations = ({ navigation, route }) => {
       onPress={() => {
         promptAsync();
         }}
+      color="#80dfff"
     />
     </ View>
   );
