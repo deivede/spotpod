@@ -11,7 +11,7 @@ web-build/
 
 # macOS
 .DS_Store
-keys.js
-ipodify.png
-ipodifyicon.png
+
+#
 eas.json
+app.config.js

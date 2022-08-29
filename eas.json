@@ -1,5 +1,12 @@
 {
   "build": {
+    "production": {
+      "env": {
+       "clientId": "ed5b8191e9da45efaf0a56485c253ca2",
+       "clientSecret": "6405bf07f76e40f78913a08c7c289ecb",
+       "redirectUri": "http://localhost:19006/callback/"
+     }
+    },
     "release": {},
     "development": {
       "developmentClient": true,

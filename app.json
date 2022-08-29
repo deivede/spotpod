@@ -2,7 +2,7 @@
   "expo": {
     "name": "spotpod",
     "slug": "spotpod",
-    "version": "1.2.2",
+    "version": "2.5.0",
     "scheme": "exp",
     "orientation": "portrait",
     "icon": "./assets/spotpodlogo.png",
@@ -28,7 +28,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.opensource.spotpod",
-      "permissions": []
+      "permissions": [],
+      "versionCode": 5
     },
     "web": {
       "favicon": "./assets/spotpodlogo.png"
