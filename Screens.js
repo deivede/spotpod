@@ -20,7 +20,7 @@ const Artists = ({ navigation, route }) => {
   elementArray = artistsList.map(artist => (
       <View style={styles.albumRow} key={artist.id}>
           <Image style={styles.artistImage}
-                 source={{ uri: artist.images[1].url}}
+                 source={{ uri: artist.albums[0].images}}
           />
           <TouchableHighlight
             style={styles.box2}

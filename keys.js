@@ -8,7 +8,7 @@ const spotifyApi = new SpotifyWebApi({
   redirectUri: Constants.manifest.extra.redirectUri
 });
 
-const clientId = clientId: Constants.manifest.extra.clientId;
+const clientId = Constants.manifest.extra.clientId
 
 
 export {  spotifyApi,  clientId }
